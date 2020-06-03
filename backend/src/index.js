@@ -1,15 +1,14 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const MongoClient = require('mongodb').MongoClient
 const routes = require('./routes');
 require('dotenv-safe').config();
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3333
-mongoose.connect(process.env.DB_URL, {
-    useNewUrlParser : true,
-    useUnifiedTopology : true
-})
+const client = await new MongoClient(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology : true})
 // teste para evitar o CORS
+
+client.connect()
 app.use(cors({
     origin : '*'
 }))
