@@ -4,7 +4,7 @@ const routes = require('./routes');
 require('dotenv-safe').config();
 const cors = require('cors');
 const app = express();
-
+console.log("Olha aqui: ", process.env.DB_URL)
 mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true})
 // teste para evitar o CORS
 app.use(cors({
