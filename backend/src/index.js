@@ -8,9 +8,9 @@ const port = process.env.PORT || 3333
 // teste para evitar o CORS
 async function _connection() {
     const client = await new MongoClient(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology : true})
+    client.connect()
 }
 _connection()
-client.connect()
 app.use(cors({
     origin : '*'
 }))
