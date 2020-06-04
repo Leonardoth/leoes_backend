@@ -7,7 +7,7 @@ const app = express();
 console.log("Olha aqui: ", process.env.DB_URL)
 // mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true})
 
-mongoose.connect(process.env.DB_URL, () => { }, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch(err => {
         console.log(err);
     });
