@@ -60,7 +60,7 @@ module.exports = {
             if(rg !== null && contact !== null){
                 person = await Person.findOne({$or : [{rg}, {contact}]});
             }else if(rg == null || contact == null){
-                rg !== '' ? person = await Person.findOne({rg}) : person = await Person.findOne({contact})
+                rg !== null ? person = await Person.findOne({rg}) : person = await Person.findOne({contact})
             }
             if(!person){
                 person = await Person.create({
