@@ -20,7 +20,7 @@ module.exports = {
                     {"plates.plate_number" : {$regex:term, $options : "gi"}},
                     {"plates.plate_description" : {$regex:term, $options : "gi"}},
                 ]
-        }).sort({"_id" : 1}).limit(20)
+        }).sort({"_id" : -1}).limit(20)
         }else{
             person = await Person.find({
                     $or : [
